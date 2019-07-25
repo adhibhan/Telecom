@@ -13,7 +13,7 @@ Feature: To test the AddCustomer functionality
     Then the user should see the customer ID generated
 
   @us2 @Negative
-  Scenario: Neg To test the generate customer ID functionality
+  Scenario: Neg To test the generate customer ID functionality1
     Given The user is in add customer page
     When the user fills in the valid details
       | firstName   | abc          |
@@ -26,7 +26,7 @@ Feature: To test the AddCustomer functionality
     Then the user should see the error message
 
   @Negative @us3
-  Scenario: Neg To test the generate customer ID functionality
+  Scenario: Neg To test the generate customer ID functionality2
     Given The user is in add customer page
     When the user fills in the valid details
       | firstName   |         |
