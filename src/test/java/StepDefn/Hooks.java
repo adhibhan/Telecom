@@ -1,8 +1,11 @@
 package StepDefn;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 
@@ -20,7 +23,13 @@ public class Hooks {
 	}
 
 	@After
-	public static void afterMethod() {
+	public static void afterMethod(Scenario Scenario) {
+		
+		if (Scenario.isFailed()) {
+			final byte[] screenshot= ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+		Scenario.embed(screenshot, "image/png");
+		}
+		
 		driver.close();
 		driver.quit();
 
